@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include <limits.h> // For ULLONG_MAX
+
+int main() {
+    int n;
+    unsigned long long factorial = 1;
+
+    printf("Enter a positive integer: ");
+
+    // Validate if input is an integer
+    if (scanf("%d", &n) != 1) {
+        printf("Invalid input. Please enter an integer value.\n");
+        return 1;
+    }
+
+    // Check for negative input
+    if (n < 0) {
+        printf("Factorial is not defined for negative numbers.\n");
+        return 1;
+    }
+
+    // Check for values that could cause overflow
+    if (n > 20) {
+        // 21! exceeds the range of unsigned long long
+        printf("Input too large! Please enter a number ≤ 20 to avoid overflow.\n");
+        return 1;
+    }
+
+    // Calculate factorial
+    for (int i = 1; i <= n; ++i) {
+        factorial *= i;
+    }
+
+    printf("Factorial of %d = %llu\n", n, factorial);
+    return 0;
+}

@@ -1,0 +1,15 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Run prac1",
+      "type": "shell",
+      "command": "make main",
+      "options": {
+        "cwd": "${workspaceFolder}/Prac1"
+      },
+      "group": "build",
+      "problemMatcher": []
+    }
+  ]
+}

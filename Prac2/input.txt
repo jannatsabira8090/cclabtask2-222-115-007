@@ -1,0 +1,33 @@
+#include <stdio.h>
+
+int main() {
+    // Constants
+    const float rate = 3.7f;
+    const int count = 5;
+    const char letter = 'z';
+    const double smallNumber = 4.56e-10;
+
+    int userInput;
+
+    printf("Rate: %.2f, Letter: %c, Small Number: %.2e\n\n", rate, letter, smallNumber);
+
+    // Loop for user input
+    for (int index = 0; index < count; index++) {
+        printf("Iteration %d of %d\n", index + 1, count);
+        printf("Please enter an integer: ");
+
+        if (scanf("%d", &userInput) != 1) {
+            printf("Invalid input. Please enter a valid integer.\n");
+            // Clear invalid input from buffer
+            while (getchar() != '\n');
+            index--; // retry this iteration
+            continue;
+        }
+
+        int result = userInput * 2;
+        printf("Twice your input is: %d\n\n", result);
+    }
+
+    printf("Thank you! Program completed successfully.\n");
+    return 0;
+}
